@@ -24,7 +24,7 @@ const TodoFilters: React.FC<TodoFiltersProps> = ({
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '20px', padding: '16px', borderTop: '1px solid #dee2e6' }}>
       <div style={{ fontSize: '14px', color: '#6c757d' }}>
-        {stats.active} items left
+        {stats.active} {stats.active === 1 ? 'item' : 'items'} left
       </div>
       
       <div style={{ display: 'flex', gap: '8px' }}>
@@ -47,22 +47,22 @@ const TodoFilters: React.FC<TodoFiltersProps> = ({
         ))}
       </div>
       
-      {stats.completed > 0 && (
-        <button
-          onClick={onClearCompleted}
-          style={{
-            padding: '6px 12px',
-            backgroundColor: 'transparent',
-            color: '#dc3545',
-            border: '1px solid #dc3545',
-            borderRadius: '4px',
-            cursor: 'pointer',
-            fontSize: '14px',
-          }}
-        >
-          Clear Completed
-        </button>
-      )}
+      <button
+        onClick={onClearCompleted}
+        disabled={stats.completed === 0}
+        style={{
+          padding: '6px 12px',
+          backgroundColor: 'transparent',
+          color: '#dc3545',
+          border: '1px solid #dc3545',
+          borderRadius: '4px',
+          cursor: stats.completed === 0 ? 'not-allowed' : 'pointer',
+          fontSize: '14px',
+          opacity: stats.completed === 0 ? 0.3 : 1,
+        }}
+      >
+        Clear Completed
+      </button>
     </div>
   );
 };

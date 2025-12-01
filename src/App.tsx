@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from './components/ui/Button';
 import Counter from './components/features/Counter';
+import TodoList from './components/features/todolist';
 import './App.css';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Counter name="Weekly Linkedin Post" />
         <Counter name="Mock INterview" />
       </header>
+      <TodoList />
     </div>
   );
 }

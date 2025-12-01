@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { Todo, FilterType, TodoStats } from '../../types/todo';
-import TodoItem from './TodoItem';
-import TodoFilters from './TodoFilters';
+import TodoItem from './todoitem';
+import TodoFilters from './todofilters';
 
 const TodoList: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -51,7 +51,7 @@ const TodoList: React.FC = () => {
 
   // Generate unique ID
   const generateId = (): string => {
-    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+    return Date.now().toString(36) + Math.random().toString(36).slice(2);
   };
 
   // Add new todo
